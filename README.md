@@ -1,5 +1,7 @@
 # Icinga Web 2
 
+#### This is the old **master** branch of this project and maintenance is discontued. Please follow the Roadmap for v2 of this module.
+
 [![Puppet Forge](http://img.shields.io/puppetforge/v/icinga/icingaweb2.svg)](https://forge.puppet.com/icinga/icingaweb2)
 [![Build Status](https://travis-ci.org/Icinga/puppet-icingaweb2.png?branch=master)](https://travis-ci.org/Icinga/puppet-icingaweb2)
 [![Github Tag](https://img.shields.io/github/tag/Icinga/puppet-icingaweb2.svg)](https://github.com/Icinga/puppet-icingaweb2)
