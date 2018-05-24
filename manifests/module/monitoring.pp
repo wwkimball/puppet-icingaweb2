@@ -45,6 +45,12 @@ class icingaweb2::module::monitoring(
   Optional[String]               $ido_db_username      = undef,
   Optional[String]               $ido_db_password      = undef,
   Optional[String]               $ido_db_charset       = undef,
+  Boolean                        $ido_db_use_ssl       = false,
+  Optional[Stdlib::Absolutepath] $ido_db_ssl_cert      = undef,
+  Optional[Stdlib::Absolutepath] $ido_db_ssl_key       = undef,
+  Optional[Stdlib::Absolutepath] $ido_db_ssl_ca        = undef,
+  Optional[Stdlib::Absolutepath] $ido_db_ssl_capath    = undef,
+  Optional[String]               $ido_db_ssl_cipher    = undef,
   Hash                           $commandtransports    = undef,
 ){
 
@@ -63,14 +69,20 @@ class icingaweb2::module::monitoring(
   }
 
   icingaweb2::config::resource { 'icingaweb2-module-monitoring':
-    type        => 'db',
-    db_type     => $ido_type,
-    host        => $ido_host,
-    port        => $ido_port,
-    db_name     => $ido_db_name,
-    db_username => $ido_db_username,
-    db_password => $ido_db_password,
-    db_charset  => $ido_db_charset,
+    type          => 'db',
+    db_type       => $ido_type,
+    host          => $ido_host,
+    port          => $ido_port,
+    db_name       => $ido_db_name,
+    db_username   => $ido_db_username,
+    db_password   => $ido_db_password,
+    db_charset    => $ido_db_charset,
+    db_use_ssl    => $ido_db_use_ssl,
+    db_ssl_cert   => $ido_db_ssl_cert,
+    db_ssl_key    => $ido_db_ssl_key,
+    db_ssl_ca     => $ido_db_ssl_ca,
+    db_ssl_capath => $ido_db_ssl_capath,
+    db_ssl_cipher => $ido_db_ssl_cipher,
   }
 
   $backend_settings = {

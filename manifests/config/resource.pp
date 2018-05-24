@@ -70,6 +70,12 @@ define icingaweb2::config::resource(
   Optional[String]                            $db_username     = undef,
   Optional[String]                            $db_password     = undef,
   Optional[String]                            $db_charset      = undef,
+  Boolean                                     $db_use_ssl      = false,
+  Optional[Stdlib::Absolutepath]              $db_ssl_cert     = undef,
+  Optional[Stdlib::Absolutepath]              $db_ssl_key      = undef,
+  Optional[Stdlib::Absolutepath]              $db_ssl_ca       = undef,
+  Optional[Stdlib::Absolutepath]              $db_ssl_capath   = undef,
+  Optional[String]                            $db_ssl_cipher   = undef,
   Optional[String]                            $ldap_root_dn    = undef,
   Optional[String]                            $ldap_bind_dn    = undef,
   Optional[String]                            $ldap_bind_pw    = undef,
@@ -81,14 +87,20 @@ define icingaweb2::config::resource(
   case $type {
     'db': {
       $settings = {
-        'type'     => $type,
-        'db'       => $db_type,
-        'host'     => $host,
-        'port'     => $port,
-        'dbname'   => $db_name,
-        'username' => $db_username,
-        'password' => $db_password,
-        'charset'  => $db_charset,
+        'type'       => $type,
+        'db'         => $db_type,
+        'host'       => $host,
+        'port'       => $port,
+        'dbname'     => $db_name,
+        'username'   => $db_username,
+        'password'   => $db_password,
+        'charset'    => $db_charset,
+        'use_ssl'    => $db_use_ssl,
+        'ssl_cert'   => $db_ssl_cert,
+        'ssl_key'    => $db_ssl_key,
+        'ssl_ca'     => $db_ssl_ca,
+        'ssl_capath' => $db_ssl_capath,
+        'ssl_cipher' => $db_ssl_cipher,
       }
     }
     'ldap': {

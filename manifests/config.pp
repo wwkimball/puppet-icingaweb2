@@ -111,13 +111,19 @@ class icingaweb2::config {
 
   if $import_schema or $config_backend == 'db' {
     icingaweb2::config::resource { "${db_type}-icingaweb2":
-      type        => 'db',
-      host        => $db_host,
-      port        => $db_port,
-      db_type     => $db_type,
-      db_name     => $db_name,
-      db_username => $db_username,
-      db_password => $db_password,
+      type          => 'db',
+      host          => $db_host,
+      port          => $db_port,
+      db_type       => $db_type,
+      db_name       => $db_name,
+      db_username   => $db_username,
+      db_password   => $db_password,
+      db_use_ssl    => $icingaweb2::db_use_ssl,
+      db_ssl_cert   => $icingaweb2::db_ssl_cert,
+      db_ssl_key    => $icingaweb2::db_ssl_key,
+      db_ssl_ca     => $icingaweb2::db_ssl_ca,
+      db_ssl_capath => $icingaweb2::db_ssl_capath,
+      db_ssl_cipher => $icingaweb2::db_ssl_cipher,
     }
   }
 
